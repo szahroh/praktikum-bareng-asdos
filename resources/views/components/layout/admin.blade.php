@@ -72,7 +72,17 @@
           </form>
         </div>
       </li>
+<li>
+    <form method="POST" action="{{ route('logout') }}">
+                            @csrf
 
+                            <a :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Log Out') }}
+                            </a>
+                        </form>
+</li>
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -188,7 +198,9 @@
           <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">
+            {{Auth::user()->name }}
+          </a>
         </div>
       </div>
 
